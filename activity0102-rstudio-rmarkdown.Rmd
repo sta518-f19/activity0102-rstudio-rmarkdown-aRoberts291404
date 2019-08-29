@@ -40,19 +40,25 @@ dino_data %>%
 
 ### Exercise 3
 
-(Add code and narrative as needed. Note that the R chunks are labeled with `plot-star` and `cor-star` to provide spaces to place the code for plotting and calculating the correlation coefficient. To finish, clean up the narrative by removing these instructions.)
-
-Blah blah blah...
+We will plot the data in the star dataset:
 
 ```{r plot-star}
+star_data <- datasaurus_dozen %>%
+  filter(dataset == "star")
 
+ggplot(data = star_data, mapping = aes(x = x, y = y)) + geom_point()
 ```
 
-I'm some text, you should replace me with more meaningful text...
+The dataplot shows the shape of a star. As the relationship between `x` and `y` is not linear it won't make sense to calculate the correlation coefficient.
+
+Calculating the correlation coefficient anyway, we find that
 
 ```{r cor-star}
-
+star_data %>%
+  summarize(r = cor(x,y))
 ```
+
+The *r* for the star dataset is similar to the *r* of the dino dataset.
 
 ### Exercise 4
 
