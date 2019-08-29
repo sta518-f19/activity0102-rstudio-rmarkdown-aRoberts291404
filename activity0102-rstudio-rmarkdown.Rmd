@@ -19,9 +19,7 @@ Based on the help file, **datasaurus_dozen** has 1846 rows and 3 columns. The da
 
 ### Exercise 2
 
-(The answers for this Exercise are given for you below. But you should clean up some of the narrative so that it only includes what you want to turn in.)
-
-First let's plot the data in the dino dataset:
+First we will plot the data in the dino dataset:
 
 ```{r plot-dino, fig.height=3, fig.width=6}
 dino_data <- datasaurus_dozen %>%
@@ -31,7 +29,9 @@ ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
   geom_point()
 ```
 
-And next calculate the correlation between `x` and `y` in this dataset:
+The dataplot shows the shape of a dinosaur, as the relationship between `x` and `y` is not linear it won't make sense to calculate the correlation coefficient.
+
+Calculating the correlation coefficient anyway, we find that
 
 ```{r cor-dino}
 dino_data %>%
