@@ -2,7 +2,11 @@
 title: "Activity 1.2 - RStudio and R Markdown"
 author: "Austin Roberts"
 date: "8/29/2019"
-output: html_document
+output: 
+  html_document: 
+    fig_height: 3
+    fig_width: 3
+    highlight: pygments
 ---
 
 ### Load packages
@@ -84,8 +88,18 @@ The *r* for the circle dataset is similar to the *r* of the dino dataset.
 
 ### Exercise 5
 
-```{}
+Finally, we will plot the data of all 13 datasets side by side:
 
+```{r plot-all, fig.height=10, fig.width=5}
+ggplot(data = datasaurus_dozen, aes(x = x, y = y, color = dataset)) + geom_point() + 
+  facet_wrap(~ dataset, ncol = 3) + theme(legend.position = "none")
 ```
 
-(Add code and narrative as needed. To add R chunks either type out the backticks, curly braces, and the letter `r` or use the Insert chunk button above, green C+.)
+Most of these data show a nonlinear relationship, however we will calculate the correlation coefficient for each of these anyway.
+
+```{r cor-all}
+datasaurus_dozen %>%
+  group_by(dataset) %>%
+  summarize(r = cor(x, y)) %>%
+  print(13)
+```
