@@ -84,4 +84,8 @@ The *r* for the circle dataset is similar to the *r* of the dino dataset.
 
 ### Exercise 5
 
+```{}
+
+```
+
 (Add code and narrative as needed. To add R chunks either type out the backticks, curly braces, and the letter `r` or use the Insert chunk button above, green C+.)
